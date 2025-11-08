@@ -1,0 +1,331 @@
+/* Kanji Writing Practice - Styles */
+
+/* Container */
+.kwp-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Section */
+.kwp-input-section {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.kwp-label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+.kwp-kanji-input {
+    font-size: 2rem;
+    text-align: center;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    width: 100px;
+    transition: border-color 0.3s;
+    font-family: "Noto Sans JP", "MS Mincho", "Yu Mincho", serif;
+}
+
+.kwp-kanji-input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+/* Canvas Wrapper */
+.kwp-canvas-wrapper {
+    margin-top: 2rem;
+}
+
+/* Controls */
+.kwp-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.kwp-control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.kwp-control-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+    white-space: nowrap;
+}
+
+.kwp-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Buttons */
+.kwp-btn {
+    padding: 0.5rem;
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kwp-btn:hover {
+    background: #f0f0f0;
+    border-color: #4a90e2;
+}
+
+.kwp-btn:active {
+    transform: scale(0.95);
+}
+
+.kwp-btn svg {
+    display: block;
+}
+
+.kwp-toggle-watermark.active {
+    background: #4a90e2;
+    border-color: #4a90e2;
+    color: #fff;
+}
+
+.kwp-toggle-watermark.active svg {
+    stroke: #fff;
+}
+
+/* Sliders */
+.kwp-slider {
+    width: 100px;
+    height: 6px;
+    border-radius: 3px;
+    background: #ddd;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.kwp-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #4a90e2;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.kwp-slider::-webkit-slider-thumb:hover {
+    background: #357abd;
+    transform: scale(1.1);
+}
+
+.kwp-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #4a90e2;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+
+.kwp-slider::-moz-range-thumb:hover {
+    background: #357abd;
+    transform: scale(1.1);
+}
+
+/* Color Picker */
+.kwp-color-picker {
+    width: 50px;
+    height: 35px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.kwp-color-picker:hover {
+    border-color: #4a90e2;
+}
+
+/* Canvas Container */
+.kwp-canvas-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    touch-action: none;
+}
+
+.kwp-canvas-container canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.kwp-grid-canvas {
+    z-index: 1;
+}
+
+.kwp-watermark-canvas {
+    z-index: 2;
+    pointer-events: none;
+}
+
+.kwp-drawing-canvas {
+    z-index: 3;
+}
+
+/* Fullscreen mode */
+.kwp-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: #fff;
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.kwp-fullscreen .kwp-input-section {
+    flex-shrink: 0;
+}
+
+.kwp-fullscreen .kwp-canvas-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.kwp-fullscreen .kwp-controls {
+    flex-shrink: 0;
+}
+
+.kwp-fullscreen .kwp-canvas-container {
+    flex: 1;
+    max-width: none;
+    max-height: none;
+    aspect-ratio: unset;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .kwp-container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .kwp-controls {
+        gap: 0.75rem;
+        padding: 0.75rem;
+    }
+
+    .kwp-control-group {
+        gap: 0.4rem;
+    }
+
+    .kwp-control-label {
+        font-size: 0.8rem;
+    }
+
+    .kwp-slider {
+        width: 80px;
+    }
+
+    .kwp-value {
+        font-size: 0.8rem;
+        min-width: 35px;
+    }
+
+    .kwp-btn {
+        padding: 0.4rem;
+    }
+
+    .kwp-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .kwp-container {
+        margin: 0.5rem;
+        padding: 0.75rem;
+    }
+
+    .kwp-kanji-input {
+        font-size: 1.5rem;
+        width: 80px;
+    }
+
+    .kwp-controls {
+        gap: 0.5rem;
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .kwp-control-group {
+        flex-basis: 100%;
+        justify-content: space-between;
+    }
+
+    .kwp-slider {
+        flex: 1;
+        max-width: 150px;
+    }
+
+    .kwp-canvas-container {
+        border-width: 1px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .kwp-controls {
+        display: none;
+    }
+
+    .kwp-input-section {
+        display: none;
+    }
+
+    .kwp-container {
+        box-shadow: none;
+    }
+}
